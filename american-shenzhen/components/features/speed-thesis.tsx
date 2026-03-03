@@ -242,12 +242,8 @@ export function SpeedThesis() {
                 <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.6)] relative z-20">
                   <Zap className="text-white h-8 w-8" />
                 </div>
-                {/* Pulse ring from center */}
-                <motion.div
-                  className="absolute inset-0 rounded-full border border-blue-400/50 z-10"
-                  animate={{ scale: [1, 2.5], opacity: [1, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
-                />
+                {/* Static ring from center */}
+                <div className="absolute inset-0 rounded-full border border-blue-400/50 scale-125 z-10" />
               </div>
 
               {/* Connecting Lines & Signals */}
@@ -276,56 +272,34 @@ export function SpeedThesis() {
                          }}
                        />
                       
-                      {/* Signal Packets traveling outward */}
-                      {[0, 1, 2].map((particleIndex) => (
-                        <motion.div
-                          key={`p-${i}-${particleIndex}`}
+                      {/* Static Signal Packets */}
+                      {[0.3, 0.6, 0.9].map((pos, idx) => (
+                        <div
+                          key={`p-${i}-${idx}`}
                           className="absolute h-1.5 w-1.5 bg-blue-400 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.8)] z-20"
                           style={{ 
-                            top: -3, // center vertically on line (6px height / 2)
+                            top: -3,
                             left: 0,
                             transformOrigin: "left center",
-                            rotate: `${i * 72}deg` 
-                          }}
-                          initial={{ x: 0, opacity: 0 }}
-                          animate={{
-                            x: [0, radius], 
-                            opacity: [0, 1, 0],
-                            scale: [0.5, 1, 0.5]
-                          }}
-                          transition={{
-                            duration: 2.5,
-                            repeat: Infinity,
-                            delay: particleIndex * 0.8, // Staggered stream
-                            ease: "linear"
+                            transform: `rotate(${i * 72}deg) translateX(${radius * pos}px)` 
                           }}
                         />
                       ))}
 
-                      {/* Outer Node */}
-                      <motion.div
-                        className="absolute w-8 h-8 rounded-full border border-white/10 bg-secondary z-20 flex items-center justify-center"
+                      {/* Outer Node - Static Active State */}
+                      <div
+                        className="absolute w-8 h-8 rounded-full border border-blue-500/50 bg-blue-900/30 z-20 flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.3)]"
                         style={{ 
                           top: nodeY - 16, // Center vertically
                           left: nodeX - 16, // Center horizontally
                         }}
-                        animate={{
-                          borderColor: ["rgba(255,255,255,0.1)", "rgba(59,130,246,0.8)", "rgba(255,255,255,0.1)"],
-                          backgroundColor: ["rgb(23,23,23)", "rgba(30, 58, 138, 0.5)", "rgb(23,23,23)"],
-                          boxShadow: ["0 0 0px rgba(0,0,0,0)", "0 0 20px rgba(59,130,246,0.5)", "0 0 0px rgba(0,0,0,0)"]
-                        }}
-                        transition={{
-                          duration: 1.5,
-                          repeat: Infinity,
-                          delay: i * 0.2 + 1.2, // Sync with signal arrival roughly
-                        }}
                       >
-                        <div className="w-2 h-2 bg-white/50 rounded-full" />
-                      </motion.div>
+                        <div className="w-2 h-2 bg-blue-400 rounded-full" />
+                      </div>
                       
-                       {/* Branching lines outward from nodes */}
+                       {/* Branching lines outward from nodes - Static */}
                        {[1, -1].map((dir, j) => (
-                          <motion.div
+                          <div
                             key={`branch-${i}-${j}`}
                             className="absolute bg-blue-500/20 origin-left"
                             style={{
@@ -335,9 +309,6 @@ export function SpeedThesis() {
                               left: nodeX,
                               transform: `rotate(${i * 72 + (dir * 30)}deg)`
                             }}
-                            initial={{ scaleX: 0, opacity: 0 }}
-                            animate={{ scaleX: 1, opacity: [0, 1, 0] }}
-                            transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 + 1.2 }}
                           />
                        ))}
 
