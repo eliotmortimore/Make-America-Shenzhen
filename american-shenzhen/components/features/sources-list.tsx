@@ -79,7 +79,7 @@ export function SourcesList() {
       </AnimatePresence>
 
       <div className="text-center text-xs text-muted-foreground/30 font-mono mt-12">
-        BUILT WITH NEXT.JS 14 + TAILWIND CSS • OBSIDIAN THEME
+        built by Eliot Mortimore written by Aaron Slodov
       </div>
     </div>
   );

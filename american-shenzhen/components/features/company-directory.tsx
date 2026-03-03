@@ -103,6 +103,19 @@ export function CompanyDirectory() {
           No companies found matching your criteria.
         </div>
       )}
+
+      {/* CTA Button */}
+      <div className="flex justify-center mt-16">
+        <a 
+          href="https://reindustrialize.com/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-full transition-all hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] flex items-center gap-2"
+        >
+          Meet Other Reindustrialists
+          <ExternalLink className="h-4 w-4" />
+        </a>
+      </div>
     </div>
   );
 }
