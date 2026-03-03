@@ -8,12 +8,11 @@ import {
   TrendingUp, 
   AlertTriangle, 
   CheckCircle2, 
-  Clock, 
-  Zap, 
   Users, 
   Bot, 
   Factory,
-  ArrowRight
+  ArrowRight,
+  Zap
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -234,26 +233,115 @@ export function SpeedThesis() {
           </ul>
         </div>
         
-        <div className="relative min-h-[200px] flex items-center justify-center">
-          {/* Simple visualization of network effect */}
+        <div className="relative min-h-[400px] flex items-center justify-center overflow-hidden">
+          {/* Enhanced visualization of network effect */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative w-full max-w-sm aspect-square">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.5)] z-20">
-                <Zap className="text-white h-8 w-8" />
-              </div>
-              {/* Orbiting nodes */}
-              {[0, 1, 2, 3, 4].map((i) => (
+            {/* Center Hub */}
+            <div className="relative flex items-center justify-center w-full h-full">
+              <div className="absolute z-30">
+                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.6)] relative z-20">
+                  <Zap className="text-white h-8 w-8" />
+                </div>
+                {/* Pulse ring from center */}
                 <motion.div
-                  key={i}
-                  className="absolute top-1/2 left-1/2 w-8 h-8 bg-secondary border border-white/10 rounded-full z-10"
-                  animate={{
-                    x: Math.cos(i * 72 * (Math.PI / 180)) * 100 - 16,
-                    y: Math.sin(i * 72 * (Math.PI / 180)) * 100 - 16,
-                  }}
+                  className="absolute inset-0 rounded-full border border-blue-400/50 z-10"
+                  animate={{ scale: [1, 2.5], opacity: [1, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
                 />
-              ))}
-              <div className="absolute inset-0 border border-blue-500/20 rounded-full scale-75 animate-pulse" />
-              <div className="absolute inset-0 border border-blue-500/10 rounded-full scale-110" />
+              </div>
+
+              {/* Connecting Lines & Signals */}
+              {[0, 1, 2, 3, 4].map((i) => {
+                const angleRad = (i * 72) * (Math.PI / 180);
+                const radius = 120;
+                
+                // Calculate position for the outer node
+                // These are relative to center (0,0)
+                const nodeX = Math.cos(angleRad) * radius;
+                const nodeY = Math.sin(angleRad) * radius;
+                
+                return (
+                  <div key={i} className="absolute inset-0 pointer-events-none flex items-center justify-center">
+                     {/* Container centered in the parent */}
+                     <div className="relative w-0 h-0">
+                       
+                       {/* Line to node */}
+                       <div 
+                         className="absolute h-[1px] bg-white/10 origin-left"
+                         style={{ 
+                           width: `${radius}px`,
+                           top: 0,
+                           left: 0,
+                           transform: `rotate(${i * 72}deg)` 
+                         }}
+                       />
+                      
+                      {/* Signal Packet traveling outward */}
+                      <motion.div
+                        className="absolute h-1.5 w-3 bg-blue-400 rounded-full shadow-[0_0_10px_rgba(59,130,246,1)] z-20"
+                        style={{ 
+                          top: -3, // center vertically on line
+                          left: 0,
+                          transformOrigin: "left center",
+                          rotate: `${i * 72}deg` 
+                        }}
+                        initial={{ x: 0, opacity: 0 }}
+                        animate={{
+                          x: [0, radius], 
+                          opacity: [0, 1, 0],
+                          scale: [0.5, 1, 0.5]
+                        }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          delay: i * 0.2, // Staggered start
+                          ease: "linear"
+                        }}
+                      />
+
+                      {/* Outer Node */}
+                      <motion.div
+                        className="absolute w-8 h-8 rounded-full border border-white/10 bg-secondary z-20 flex items-center justify-center"
+                        style={{ 
+                          top: nodeY - 16, // Center vertically
+                          left: nodeX - 16, // Center horizontally
+                        }}
+                        animate={{
+                          borderColor: ["rgba(255,255,255,0.1)", "rgba(59,130,246,0.8)", "rgba(255,255,255,0.1)"],
+                          backgroundColor: ["rgb(23,23,23)", "rgba(30, 58, 138, 0.5)", "rgb(23,23,23)"],
+                          boxShadow: ["0 0 0px rgba(0,0,0,0)", "0 0 20px rgba(59,130,246,0.5)", "0 0 0px rgba(0,0,0,0)"]
+                        }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          delay: i * 0.2 + 1.2, // Sync with signal arrival roughly
+                        }}
+                      >
+                        <div className="w-2 h-2 bg-white/50 rounded-full" />
+                      </motion.div>
+                      
+                       {/* Branching lines outward from nodes */}
+                       {[1, -1].map((dir, j) => (
+                          <motion.div
+                            key={`branch-${i}-${j}`}
+                            className="absolute bg-blue-500/20 origin-left"
+                            style={{
+                              width: "40px",
+                              height: "1px",
+                              top: nodeY,
+                              left: nodeX,
+                              transform: `rotate(${i * 72 + (dir * 30)}deg)`
+                            }}
+                            initial={{ scaleX: 0, opacity: 0 }}
+                            animate={{ scaleX: 1, opacity: [0, 1, 0] }}
+                            transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 + 1.2 }}
+                          />
+                       ))}
+
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

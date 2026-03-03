@@ -121,7 +121,7 @@ export function DualUseImperative() {
                   fill="transparent"
                   stroke="currentColor"
                   strokeWidth="20"
-                  strokeDasharray="235.6 235.6" /* 75% of circumference */
+                  strokeDasharray="188.5 251.3" /* 75% of circumference (2 * PI * 40 = ~251.3) => 75% is ~188.5 */
                   strokeDashoffset="0"
                   className="text-blue-500"
                 />
@@ -133,8 +133,8 @@ export function DualUseImperative() {
                   fill="transparent"
                   stroke="currentColor"
                   strokeWidth="20"
-                  strokeDasharray="78.5 314" /* 25% of circumference */
-                  strokeDashoffset="-235.6" /* Start after 75% */
+                  strokeDasharray="62.8 251.3" /* 25% of circumference is ~62.8 */
+                  strokeDashoffset="-188.5" /* Start after 75% */
                   className="text-slate-700"
                 />
               </svg>
