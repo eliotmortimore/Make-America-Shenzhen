@@ -218,5 +218,29 @@ export const industries: Industry[] = [
     companies: [
       { name: "OpenX", url: "https://tryopenx.com/" }
     ]
+  },
+  {
+    id: "ecosystem-enablers",
+    rank: 13,
+    name: "Ecosystem Enablers",
+    tier: "Enablers",
+    score: { ec: 5, vr: 4, du: 4, total: 13 },
+    description: "These are not manufacturing companies per se, but they are load-bearing members of the 2-hour supply chain. They provide the digital infrastructure, testing, and design tools that make the ecosystem work.",
+    ventureCase: "Software-defined manufacturing infrastructure captures value by being the nervous system of the factory. Sticky workflows, high switching costs, and network effects.",
+    dualUseCase: "Every factory needs MES, quality control, and design tools. The protocol layer is inherently dual-use.",
+    companies: [
+      { name: "Dirac", url: "https://diracinc.com/", location: "New York, NY" },
+      { name: "First Resonance", url: "https://firstresonance.io/", location: "Los Angeles, CA" },
+      { name: "Diode Computers", url: "https://diode.com/", location: "Brooklyn, NY" },
+      { name: "Quilter", url: "https://quilter.ai/", location: "Los Angeles, CA" },
+      { name: "Flux", url: "https://flux.ai/", location: "San Francisco, CA" },
+      { name: "JITX", url: "https://jitx.com/", location: "Berkeley, CA" },
+      { name: "Lambda Function", url: "https://lambdafn.ai/", location: "San Francisco, CA" },
+      { name: "Krevera", url: "https://krevera.com/", location: "Boston, MA" },
+      { name: "Photonium", url: "https://photonium.com/", location: "Palo Alto, CA" },
+      { name: "Mbodi AI", url: "https://mbodi.ai/", location: "New York, NY" },
+      { name: "Matter", url: "https://makematter.co/", location: "San Francisco, CA" },
+      { name: "Drafter", url: "https://drafterinc.com/", location: "Austin, TX" }
+    ]
   }
 ];

@@ -70,6 +70,52 @@ function IndustryCard({ industry }: { industry: Industry }) {
              <ChevronDown className={cn("h-5 w-5 text-muted-foreground transition-transform duration-300", isOpen && "rotate-180")} />
           </div>
         </div>
+
+        {/* Always visible stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 pt-4 border-t border-border/50">
+          <div className="flex items-center gap-4">
+            <span className="text-xs font-mono text-muted-foreground w-8">EC</span>
+            <div className="flex gap-1">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div
+                  key={i}
+                  className={cn(
+                    "h-1.5 w-8 rounded-sm transition-all duration-300",
+                    industry.score.ec > i ? "bg-blue-500" : "bg-secondary"
+                  )}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="text-xs font-mono text-muted-foreground w-8">VR</span>
+            <div className="flex gap-1">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div
+                  key={i}
+                  className={cn(
+                    "h-1.5 w-8 rounded-sm transition-all duration-300",
+                    industry.score.vr > i ? "bg-green-500" : "bg-secondary"
+                  )}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="text-xs font-mono text-muted-foreground w-8">DU</span>
+            <div className="flex gap-1">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div
+                  key={i}
+                  className={cn(
+                    "h-1.5 w-8 rounded-sm transition-all duration-300",
+                    industry.score.du > i ? "bg-red-500" : "bg-secondary"
+                  )}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </button>
 
       <AnimatePresence>
@@ -80,16 +126,9 @@ function IndustryCard({ industry }: { industry: Industry }) {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <div className="px-6 pb-6 pt-0 space-y-8 border-t border-border/50 mt-2">
-              {/* Scores */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
-                <ProgressBar score={industry.score.ec} label="EC" color="blue" />
-                <ProgressBar score={industry.score.vr} label="VR" color="green" />
-                <ProgressBar score={industry.score.du} label="DU" color="red" />
-              </div>
-
+            <div className="px-6 pb-6 pt-0 space-y-8">
               {/* Description */}
-              <div className="prose max-w-none text-sm text-muted-foreground">
+              <div className="prose max-w-none text-sm text-muted-foreground pt-4">
                 <p>{industry.description}</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
                     <div>

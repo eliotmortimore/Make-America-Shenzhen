@@ -47,16 +47,6 @@ export function Hero() {
           </div>
         </motion.div>
       </div>
-
-      {/* Bottom Right Graphic */}
-      <div className="absolute bottom-12 right-6 md:right-16 text-right hidden lg:block opacity-100 mix-blend-screen pointer-events-none">
-        <div className="text-[10rem] font-black leading-none text-neutral-900 tracking-tighter select-none">
-          2HR
-        </div>
-        <div className="text-blue-600 font-mono text-xs tracking-[0.5em] uppercase mt-2 font-bold select-none">
-          Supply Chain Density
-        </div>
-      </div>
     </section>
   );
 }
