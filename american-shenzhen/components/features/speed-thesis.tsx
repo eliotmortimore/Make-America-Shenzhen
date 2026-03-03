@@ -276,28 +276,31 @@ export function SpeedThesis() {
                          }}
                        />
                       
-                      {/* Signal Packet traveling outward */}
-                      <motion.div
-                        className="absolute h-1.5 w-3 bg-blue-400 rounded-full shadow-[0_0_10px_rgba(59,130,246,1)] z-20"
-                        style={{ 
-                          top: -3, // center vertically on line
-                          left: 0,
-                          transformOrigin: "left center",
-                          rotate: `${i * 72}deg` 
-                        }}
-                        initial={{ x: 0, opacity: 0 }}
-                        animate={{
-                          x: [0, radius], 
-                          opacity: [0, 1, 0],
-                          scale: [0.5, 1, 0.5]
-                        }}
-                        transition={{
-                          duration: 1.5,
-                          repeat: Infinity,
-                          delay: i * 0.2, // Staggered start
-                          ease: "linear"
-                        }}
-                      />
+                      {/* Signal Packets traveling outward */}
+                      {[0, 1, 2].map((particleIndex) => (
+                        <motion.div
+                          key={`p-${i}-${particleIndex}`}
+                          className="absolute h-1.5 w-1.5 bg-blue-400 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.8)] z-20"
+                          style={{ 
+                            top: -3, // center vertically on line (6px height / 2)
+                            left: 0,
+                            transformOrigin: "left center",
+                            rotate: `${i * 72}deg` 
+                          }}
+                          initial={{ x: 0, opacity: 0 }}
+                          animate={{
+                            x: [0, radius], 
+                            opacity: [0, 1, 0],
+                            scale: [0.5, 1, 0.5]
+                          }}
+                          transition={{
+                            duration: 2.5,
+                            repeat: Infinity,
+                            delay: particleIndex * 0.8, // Staggered stream
+                            ease: "linear"
+                          }}
+                        />
+                      ))}
 
                       {/* Outer Node */}
                       <motion.div

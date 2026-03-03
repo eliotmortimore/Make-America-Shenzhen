@@ -54,7 +54,7 @@ export function ThesisIntro() {
         
         <Card className="bg-secondary/20 border-blue-900/30">
           <p className="text-lg text-muted-foreground leading-relaxed">
-            This is the stack-ranked list and blueprint I wish existed when I started <a href="https://x.com/@atomic_inc" className="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">@atomic_inc</a> and my crusade to reindustrialize America.
+            This is the stack-ranked list and blueprint I wish existed when I started <a href="https://x.com/@atomic_inc" className="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">@atomic_inc</a> and my crusade to reindustrialize America. <span className="text-white font-semibold">— Aaron Slodov</span>
           </p>
         </Card>
       </div>
