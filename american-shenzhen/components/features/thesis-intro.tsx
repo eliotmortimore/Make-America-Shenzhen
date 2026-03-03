@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Factory, Shield, Lock, Zap, ArrowRight, BarChart3, Map, Target, TrendingUp, Layers } from "lucide-react";
+import { Factory, Shield, Lock, Flag, ArrowRight, BarChart3, Map, Target, TrendingUp, Layers } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -11,7 +11,7 @@ export function ThesisIntro() {
     { icon: Factory, label: "Local Manufacturing", arrow: true },
     { icon: Lock, label: "Self-Reliance", arrow: true },
     { icon: Shield, label: "Stability", arrow: true },
-    { icon: Zap, label: "Freedom", arrow: false },
+    { icon: Flag, label: "Freedom", arrow: false },
   ];
 
   const fourThings = [
@@ -54,7 +54,7 @@ export function ThesisIntro() {
         
         <Card className="bg-secondary/20 border-blue-900/30">
           <p className="text-lg text-muted-foreground leading-relaxed">
-            After a <a href="https://x.com/ti_morse/status/2027437376256315497?s=20" className="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">recent debate</a> with <a href="https://x.com/@sdamico" className="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">@sdamico</a> on whether the U.S. can actually compete with China&apos;s manufacturing ecosystem, I was compelled to finally write this list out. This is the stack-ranked list and blueprint I wish existed when I started <a href="https://x.com/@atomic_inc" className="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">@atomic_inc</a> and my crusade to reindustrialize America.
+            This is the stack-ranked list and blueprint I wish existed when I started <a href="https://x.com/@atomic_inc" className="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">@atomic_inc</a> and my crusade to reindustrialize America.
           </p>
         </Card>
       </div>
@@ -123,9 +123,9 @@ export function ThesisIntro() {
 
       {/* Venture Case & Economics */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="space-y-4 bg-secondary/5 border-white/5">
+        <Card className="space-y-4 bg-orange-950/10 border-orange-500/20">
           <div className="flex items-center gap-2 mb-2">
-            <Badge variant="outline" className="text-green-400 border-green-400/20">Proof Point</Badge>
+            <Badge variant="outline" className="text-orange-400 border-orange-400/20 bg-orange-400/10">The Bootstrapping Case</Badge>
           </div>
           <h4 className="text-xl font-semibold text-white">Bootstrapping Works</h4>
           <p className="text-sm text-muted-foreground leading-relaxed">
@@ -135,7 +135,7 @@ export function ThesisIntro() {
         
         <Card className="space-y-4 bg-blue-950/10 border-blue-500/20">
           <div className="flex items-center gap-2 mb-2">
-            <Badge variant="outline" className="text-blue-400 border-blue-400/20">The Venture Case</Badge>
+            <Badge variant="outline" className="text-blue-400 border-blue-400/20 bg-blue-400/10">The Venture Case</Badge>
           </div>
           <h4 className="text-xl font-semibold text-white">Speed is the Variable</h4>
           <p className="text-sm text-muted-foreground leading-relaxed">
@@ -144,29 +144,16 @@ export function ThesisIntro() {
         </Card>
       </div>
 
-      <Card className="bg-gradient-to-r from-secondary/20 to-transparent border-white/10">
-        <div className="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
-          <div className="space-y-2">
-            <h4 className="text-lg font-semibold text-white">The New Asset Class</h4>
-            <p className="text-sm text-muted-foreground max-w-xl">
-              <a href="https://x.com/@oyhsu" className="text-blue-400 hover:underline">@oyhsu</a>&apos;s <a href="https://a16z.com/a-primer-on-factory-economics-for-startups/" className="text-blue-400 hover:underline">factory economics primer</a> (a16z, 2026) shows tech-enabled manufacturers compound value through Wright&apos;s Law and recycle capital faster.
-            </p>
+      {/* The Four Things */}
+      <div className="space-y-12">
+        <div className="relative py-8">
+          <div className="absolute inset-0 flex items-center" aria-hidden="true">
+            <div className="w-full border-t border-white/10"></div>
           </div>
-          <div className="flex flex-col items-end shrink-0 bg-background/50 p-4 rounded-lg border border-white/5">
-            <span className="text-xs text-muted-foreground uppercase tracking-wider">Median Multiple (2025)</span>
-            <span className="text-3xl font-bold text-green-400 font-mono">14.7x <span className="text-sm text-muted-foreground font-normal">EV/EBITDA</span></span>
-            <span className="text-xs text-green-500/80 flex items-center gap-1 mt-1">
-              <TrendingUp className="h-3 w-3" /> Up from 8x
-            </span>
+          <div className="relative flex justify-center">
+            <span className="bg-background px-6 text-2xl md:text-3xl font-bold text-white tracking-tight">We&apos;re doing four things here:</span>
           </div>
         </div>
-      </Card>
-
-      {/* The Four Things */}
-      <div className="space-y-8">
-        <h3 className="text-2xl font-semibold text-white border-b border-white/10 pb-4">
-          We&apos;re doing four things here:
-        </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {fourThings.map((item, i) => (

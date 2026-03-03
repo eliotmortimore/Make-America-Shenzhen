@@ -8,20 +8,24 @@ import { MarketValidation } from "@/components/features/market-validation";
 import { CompanyDirectory } from "@/components/features/company-directory";
 import { SourcesList } from "@/components/features/sources-list";
 import { Hero } from "@/components/features/hero";
+import { SectionTracker } from "@/components/ui/section-tracker";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background selection:bg-blue-500/30 selection:text-blue-200">
       <Hero />
+      <SectionTracker />
       
       <Section className="pt-24 pb-12">
-        <ThesisIntro />
+        <div id="intro">
+          <ThesisIntro />
+        </div>
 
         <div className="mt-32" id="thesis">
           <SpeedThesis />
         </div>
         
-        <div className="mt-32">
+        <div className="mt-32" id="dual-use">
           <DualUseImperative />
         </div>
         
@@ -35,15 +39,15 @@ export default function Home() {
           <IndustryStackRank />
         </div>
 
-        <div className="mt-32">
+        <div className="mt-32" id="blueprint">
           <SupplyChainBlueprint />
         </div>
 
-        <div className="mt-32">
+        <div className="mt-32" id="market">
           <MarketValidation />
         </div>
 
-        <div className="mt-32">
+        <div className="mt-32" id="directory">
           <CompanyDirectory />
           <SourcesList />
         </div>

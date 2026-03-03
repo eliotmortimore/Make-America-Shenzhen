@@ -44,12 +44,6 @@ export function Hero() {
             >
               View the Stack Rank
             </a>
-            <a 
-              href="#thesis"
-              className="border border-neutral-800 text-white px-8 py-5 font-bold text-sm tracking-[0.1em] hover:bg-white/5 hover:border-white/20 transition-all uppercase inline-flex items-center justify-center min-w-[200px]"
-            >
-              Read the Thesis
-            </a>
           </div>
         </motion.div>
       </div>

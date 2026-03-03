@@ -57,13 +57,6 @@ export function SpeedThesis() {
 
   return (
     <div className="space-y-32">
-      {/* Introduction Quote */}
-      <div className="relative border-l-2 border-blue-500 pl-6 py-2 md:pl-10 md:py-4">
-        <h3 className="text-2xl md:text-3xl font-light text-muted-foreground leading-relaxed">
-          The <span className="text-white font-medium">5-to-10-year micro cycle</span> and <span className="text-white font-medium">20-to-30-year macro cycle</span> of this transition are underway simultaneously.
-        </h3>
-      </div>
-
       {/* Tailwinds Grid */}
       <div className="space-y-8">
         <div className="flex items-center gap-3">
@@ -95,8 +88,8 @@ export function SpeedThesis() {
       </div>
 
       {/* Labor Cost vs Process */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+        <div className="space-y-6 py-4">
           <Badge variant="outline" className="h-6 text-orange-400 border-orange-400/20">The Misconception</Badge>
           <h3 className="text-3xl font-bold text-white">The Real Problem Is Not Labor Cost</h3>
           <p className="text-lg text-muted-foreground leading-relaxed">
@@ -119,14 +112,14 @@ export function SpeedThesis() {
               </div>
               <div>
                 <h4 className="font-semibold text-white">The Tech Solution</h4>
-                <p className="text-sm text-muted-foreground">Digitizing the full stack collapses lead times from <span className="line-through opacity-50">weeks</span> to <span className="text-blue-400 font-bold">days</span>.</p>
+                <p className="text-sm text-muted-foreground">Digitizing the full stack collapses lead times from weeks to <span className="text-blue-400 font-bold">days</span>.</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Utilization Chart Visualization */}
-        <Card className="p-8 bg-card border-white/5 space-y-8">
+        <Card className="p-8 bg-card border-white/5 space-y-8 h-full flex flex-col justify-center">
           <h4 className="text-sm font-mono uppercase tracking-wider text-muted-foreground mb-6">Machine Utilization Rates</h4>
           
           <div className="space-y-8">
@@ -199,17 +192,17 @@ export function SpeedThesis() {
             </div>
             <div className="space-y-1 z-10">
               <div className="text-xs text-muted-foreground uppercase tracking-widest">The Shift</div>
-              <div className="font-bold text-2xl text-white">$45/hr &rarr; $20/hr</div>
+              <div className="font-bold text-2xl text-white whitespace-nowrap">$45/hr &rarr; $20/hr</div>
               <div className="text-sm text-muted-foreground">Programmer to Operator</div>
             </div>
           </Card>
 
           <Card className="p-6 bg-background/50 border-white/5 flex flex-col items-center gap-4">
-            <div className="h-12 w-12 rounded-full bg-green-500/10 flex items-center justify-center">
-              <Factory className="h-6 w-6 text-green-400" />
+            <div className="h-12 w-12 rounded-full bg-amber-500/10 flex items-center justify-center">
+              <AlertTriangle className="h-6 w-6 text-amber-400" />
             </div>
             <div className="space-y-1">
-              <div className="text-xs text-muted-foreground uppercase tracking-widest">Result</div>
+              <div className="text-xs text-muted-foreground uppercase tracking-widest text-amber-400/80">Prevent</div>
               <div className="font-bold text-2xl text-white">2.1M</div>
               <div className="text-sm text-muted-foreground">Job gap by 2030</div>
             </div>
