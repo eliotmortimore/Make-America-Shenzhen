@@ -13,7 +13,8 @@ import {
   Rocket,
   Check,
   X,
-  PieChart
+  PieChart,
+  Zap
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
